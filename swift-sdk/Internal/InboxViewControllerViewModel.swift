@@ -88,7 +88,7 @@ class InboxViewControllerViewModel: NSObject, InboxViewControllerViewModelProtoc
         sessionManager.isModalMessage = isModal
     }
     
-    func message(atIndexPath indexPath: IndexPath) -> InboxMessageViewModel {
+    public func message(atIndexPath indexPath: IndexPath) -> InboxMessageViewModel {
         let message = sectionedMessages[indexPath.section].1[indexPath.row]
         loadImageIfNecessary(message)
         return message
