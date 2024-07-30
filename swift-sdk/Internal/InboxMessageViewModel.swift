@@ -4,7 +4,7 @@
 
 import Foundation
 
-class InboxMessageViewModel {
+public class InboxMessageViewModel {
     let title: String
     let subtitle: String?
     let imageUrl: String?
