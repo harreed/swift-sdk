@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-enum RowDiff {
+public enum RowDiff {
     case insert(IndexPath)
     case delete(IndexPath)
     case update(IndexPath)
