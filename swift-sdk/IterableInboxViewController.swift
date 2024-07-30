@@ -248,7 +248,7 @@ open class IterableInboxViewController: UITableViewController {
     
     // MARK: - IterableInboxViewController-specific Functions and Variables
     
-    var viewModel: InboxViewControllerViewModelProtocol {
+    public var viewModel: InboxViewControllerViewModelProtocol {
         didSet {
             viewModel.view = self
         }
