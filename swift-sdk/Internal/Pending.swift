@@ -21,7 +21,7 @@ extension IterableError: LocalizedError {
 // either there is a success with result
 // or there is a failure with error
 // There is no way to set value a result in this class.
-class Pending<Value, Failure> where Failure: Error {
+public class Pending<Value, Failure> where Failure: Error {
     fileprivate var successCallbacks = [(Value) -> Void]()
     fileprivate var errorCallbacks = [(Failure) -> Void]()
     
