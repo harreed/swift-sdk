@@ -4,7 +4,7 @@
 
 import UIKit
 
-protocol InboxViewControllerViewModelProtocol {
+public protocol InboxViewControllerViewModelProtocol {
     var view: InboxViewControllerViewModelView? { get set }
     var unreadCount: Int { get }
     var numSections: Int { get }
