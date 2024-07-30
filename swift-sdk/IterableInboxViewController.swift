@@ -360,7 +360,7 @@ open class IterableInboxViewController: UITableViewController {
 }
 
 extension IterableInboxViewController: InboxViewControllerViewModelView {
-    func onViewModelChanged(diffs: [RowDiff]) {
+    public func onViewModelChanged(diffs: [RowDiff]) {
         ITBInfo()
         
         guard Thread.isMainThread else {
@@ -372,7 +372,7 @@ extension IterableInboxViewController: InboxViewControllerViewModelView {
         updateUnreadBadgeCount()
     }
     
-    func onImageLoaded(for indexPath: IndexPath) {
+    public func onImageLoaded(for indexPath: IndexPath) {
         ITBInfo()
         guard Thread.isMainThread else {
             ITBError("\(#function) must be called from main thread")
@@ -382,7 +382,7 @@ extension IterableInboxViewController: InboxViewControllerViewModelView {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    var currentlyVisibleRowIndexPaths: [IndexPath] {
+    public var currentlyVisibleRowIndexPaths: [IndexPath] {
         tableView.indexPathsForVisibleRows?.compactMap(isRowVisible(atIndexPath:)) ?? []
     }
     
