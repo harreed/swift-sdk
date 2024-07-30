@@ -5,13 +5,13 @@
 import Foundation
 
 public class InboxMessageViewModel {
-    let title: String
-    let subtitle: String?
-    let imageUrl: String?
-    var imageData: Data?
-    let createdAt: Date?
-    let read: Bool
-    let iterableMessage: IterableInAppMessage
+    public let title: String
+    public let subtitle: String?
+    public let imageUrl: String?
+    public var imageData: Data?
+    public let createdAt: Date?
+    public let read: Bool
+    public let iterableMessage: IterableInAppMessage
     
     init(message: IterableInAppMessage) {
         title = InboxMessageViewModel.getTitle(message: message)
