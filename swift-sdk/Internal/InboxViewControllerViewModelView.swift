@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol InboxViewControllerViewModelView: AnyObject {
+public protocol InboxViewControllerViewModelView: AnyObject {
     /// All these methods should be called on the main thread
     func onViewModelChanged(diffs: [RowDiff])
     func onImageLoaded(for indexPath: IndexPath)
