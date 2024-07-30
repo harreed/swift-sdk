@@ -81,7 +81,7 @@ class InboxViewControllerViewModel: NSObject, InboxViewControllerViewModelProtoc
         sectionedMessages[section].1.count
     }
     
-    func showingMessage(_ message: InboxMessageViewModel, isModal: Bool) {
+    public func showingMessage(_ message: InboxMessageViewModel, isModal: Bool) {
         input.set(read: true, forMessage: message)
         sessionManager.showingMessage = true
         sessionManager.inboxDisappearedWhileShowingMessage = false
