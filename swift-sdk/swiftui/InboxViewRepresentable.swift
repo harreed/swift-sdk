@@ -10,7 +10,9 @@ import SwiftUI
 @available(iOS 13.0, *)
 struct InboxViewRepresentable: UIViewControllerRepresentable {
     var noMessagesTitle: String?
-    var noMessagwsBody: String?
+    var noMessagesBody: String?
+    var noMessagesTitleFont: UIFont?
+    var noMessagesBodyFont: UIFont?
     var showCountInUnreadBadge = true
     var isPopup = true
     var cellNibName: String?
@@ -22,7 +24,9 @@ struct InboxViewRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> IterableInboxViewController {
         let inbox = IterableInboxViewController()
         inbox.noMessagesTitle = noMessagesTitle
-        inbox.noMessagesBody = noMessagwsBody
+        inbox.noMessagesBody = noMessagesBody
+        inbox.noMessagesTitleFont = noMessagesTitleFont
+        inbox.noMessagesBodyFont = noMessagesBodyFont
         inbox.showCountInUnreadBadge = showCountInUnreadBadge
         inbox.isPopup = isPopup
         inbox.cellNibName = cellNibName

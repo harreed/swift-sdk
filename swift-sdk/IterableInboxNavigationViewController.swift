@@ -52,6 +52,18 @@ open class IterableInboxNavigationViewController: UINavigationController {
             inboxViewController?.noMessagesBody = noMessagesBody
         }
     }
+    
+    @IBInspectable public var noMessagesTitleFont: UIFont? = nil {
+        didSet {
+            inboxViewController?.noMessagesTitleFont = noMessagesTitleFont
+        }
+    }
+
+    @IBInspectable public var noMessagesBodyFont: UIFont? = nil {
+        didSet {
+            inboxViewController?.noMessagesBodyFont = noMessagesBodyFont
+        }
+    }
 
     /// Set this property to override default inbox display behavior. You should set either this property
     /// or `viewDelegateClassName`property but not both.

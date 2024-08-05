@@ -68,7 +68,10 @@ open class IterableInboxViewController: UITableViewController {
 
     /// Use this to set the message to show when there are no message in the inbox.
     @IBInspectable public var noMessagesBody: String? = nil
-    
+
+    @IBInspectable public var noMessagesTitleFont: UIFont?
+    @IBInspectable public var noMessagesBodyFont: UIFont?
+
     /// If `true`, the inbox badge will show a number when there are any unread messages in the inbox.
     /// If `false` it will simply show an indicator if there are any unread messages in the inbox.
     @IBInspectable public var showCountInUnreadBadge: Bool = true
@@ -138,7 +141,6 @@ open class IterableInboxViewController: UITableViewController {
         tableView.estimatedRowHeight = UITableView.automaticDimension
         
         let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Fetching new in-app messages")
         refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         tableView.refreshControl = refreshControl
         
@@ -196,7 +198,10 @@ open class IterableInboxViewController: UITableViewController {
     override open func numberOfSections(in _: UITableView) -> Int {
         if noMessagesTitle != nil || noMessagesBody != nil {
             if viewModel.isEmpty() {
-                tableView.setEmptyView(title: noMessagesTitle, message: noMessagesBody)
+                tableView.setEmptyView(title: noMessagesTitle,
+                                       message: noMessagesBody,
+                                       titleFont: noMessagesTitleFont,
+                                       bodyFont: noMessagesBodyFont)
             } else {
                 tableView.restore()
             }
@@ -519,7 +524,10 @@ private struct CellLoader {
 }
 
 extension UITableView {
-    func setEmptyView(title: String?, message: String?) {
+    func setEmptyView(title: String?, 
+                      message: String?,
+                      titleFont: UIFont?,
+                      bodyFont: UIFont?) {
         let emptyView = UIView(frame: self.bounds)
         let titleLabel: UILabel?
         if let title = title {
@@ -528,7 +536,7 @@ extension UITableView {
             titleLabel?.translatesAutoresizingMaskIntoConstraints = false
             titleLabel?.textAlignment = .center
             titleLabel?.textColor = .iterableLabel
-            titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+            titleLabel?.font = titleFont ?? UIFont(name: "HelveticaNeue-Bold", size: 20)
             titleLabel?.text = title
             titleLabel?.widthAnchor.constraint(equalTo: emptyView.widthAnchor, multiplier: 1.0, constant: -20).isActive = true
             titleLabel?.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
@@ -542,7 +550,7 @@ extension UITableView {
             emptyView.addSubview(messageLabel)
             messageLabel.translatesAutoresizingMaskIntoConstraints = false
             messageLabel.textColor = .iterableSecondaryLabel
-            messageLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 18)
+            messageLabel.font = bodyFont ?? UIFont(name: "HelveticaNeue-Regular", size: 18)
             messageLabel.text = message
             messageLabel.numberOfLines = 0
             messageLabel.textAlignment = .center

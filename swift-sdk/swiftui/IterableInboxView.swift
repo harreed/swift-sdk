@@ -22,14 +22,26 @@ public struct IterableInboxView: View {
         view.noMessagesTitle = value
         return view
     }
-    
+
     /// Use this to set the message to show when there are no message in the inbox.
     public func noMessagesBody(_ value: String) -> IterableInboxView {
         var view = self
         view.noMessagesBody = value
         return view
     }
-    
+
+    public func noMessagesTitleFont(_ value: UIFont?) -> IterableInboxView {
+        var view = self
+        view.noMessagesTitleFont = value
+        return view
+    }
+
+    public func noMessagesBodyFont(_ value: UIFont?) -> IterableInboxView {
+        var view = self
+        view.noMessagesBodyFont = value
+        return view
+    }
+
     /// If `true`, the inbox badge will show a number when there are any unread messages in the inbox.
     /// If `false` it will simply show an indicator if there are any unread messages in the inbox.
     public func showCountInUnreadBadge(_ value: Bool) -> IterableInboxView {
@@ -73,7 +85,9 @@ public struct IterableInboxView: View {
     public var body: some View {
         var view = InboxViewRepresentable()
         view.noMessagesTitle = noMessagesTitle
-        view.noMessagwsBody = noMessagesBody
+        view.noMessagesBody = noMessagesBody
+        view.noMessagesTitleFont = noMessagesTitleFont
+        view.noMessagesBodyFont = noMessagesBodyFont
         view.showCountInUnreadBadge = showCountInUnreadBadge
         view.isPopup = isPopup
         view.cellNibName = cellNibName
@@ -84,6 +98,8 @@ public struct IterableInboxView: View {
     
     private var noMessagesTitle: String?
     private var noMessagesBody: String?
+    private var noMessagesTitleFont: UIFont?
+    private var noMessagesBodyFont: UIFont?
     private var showCountInUnreadBadge = true
     private var isPopup = true
     private var cellNibName: String?
