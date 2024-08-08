@@ -31,4 +31,6 @@ public protocol InboxViewControllerViewModelProtocol {
     func visibleRowsChanged()
     func beganUpdates()
     func endedUpdates()
+
+    func allMessagesInSections()
 }
