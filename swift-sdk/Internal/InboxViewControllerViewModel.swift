@@ -372,7 +372,7 @@ class InboxViewControllerViewModel: NSObject, InboxViewControllerViewModelProtoc
         }
     }
     
-    private func allMessagesInSections() -> [InboxMessageViewModel] {
+    public func allMessagesInSections() -> [InboxMessageViewModel] {
         sectionedMessages.values
     }
     
