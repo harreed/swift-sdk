@@ -212,13 +212,7 @@ open class IterableInboxViewController: UITableViewController {
     override open func tableView(_: UITableView, canEditRowAt _: IndexPath) -> Bool {
         true
     }
-    
-    override open func tableView(_: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            viewModel.remove(atIndexPath: indexPath)
-        }
-    }
-    
+
     // MARK: - UITableViewDelegate (Optional Functions)
     
     override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -564,6 +558,7 @@ extension UITableView {
             }
         }
 
+        self.backgroundColor = .white
         self.backgroundView = emptyView
         self.separatorStyle = .none
     }
