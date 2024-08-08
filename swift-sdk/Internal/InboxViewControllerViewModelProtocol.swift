@@ -32,5 +32,5 @@ public protocol InboxViewControllerViewModelProtocol {
     func beganUpdates()
     func endedUpdates()
 
-    func allMessagesInSections()
+    func allMessagesInSections() -> [InboxMessageViewModel]
 }
